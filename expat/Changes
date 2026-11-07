@@ -21,6 +21,60 @@
 //                                   Sebastian Pipping -- Berlin, 2026-09-22 //
 ///////////////////////////////////////////////////////////////////////////////
 
+Release 2.11.0 XXX XXXXXXX XX XXXX
+        Security fixes:
+           #1492⁠  CVE-2026-124317 -- Fix overread in unknown encoding decoder
+
+        Bug fixes:
+     #1469 #1485  lib: Be robust towards handler reset
+           #1490  xmlwf: Reject zero read buffer size
+
+        New features:
+           #1476  lib: Add new `size_t`-based public parsing functions:
+                  - XML_GetBuffer64
+                  - XML_Parse64
+                  - XML_ParseBuffer64
+           #1476  lib: Allow total buffer size beyond `INT_MAX`
+           #1476  xmlwf: Raise limit for `-g <buffersize>` from `INT_MAX/2 + 1`
+                    to `INT_MAX`
+
+        Other changes:
+     #1430 #1481⁠  lib: Ensure non-NULL `parser->m_eventPtr` for non-error calls
+                    to `XML_Parse` with `XML_CONTEXT_BYTES == 0`
+  #1462 #1464 ..
+  #1465 #1466 ..
+  #1475 #1479 ..
+     #1480 #1487  lib: Migrate to `size_t` internally
+           #1471  lib: Enforce that `XML_GetInputContext*` can only be called
+                    from within handlers
+     #1422 #1468⁠  lib: Drop "u" suffixes for literals used in debug level
+                    comparisons
+           #1472  lib: Extract function `internalGetBuffer64`
+           #1473  lib: Resolve redundant `else` near `parser->m_errorCode
+                    != XML_ERROR_NONE`
+           #1477⁠  lib|xmlwf: Pass `NULL` instead of 0 for a pointer
+           #1489⁠  xmlwf|examples: Increase buffer size to 32 KiB
+           #1488  examples: Migrate to `size_t`
+           #1483  tests: Drop leading underscore from `_XML_Parse_SINGLE_BYTES`
+                    because it is forbidden by C99
+
+        Infrastructure:
+           #1484  CI: Fix runner image typo "macoS-26" in `autotools-cmake.yml`
+           #1486  CI: Bump MinGW Clang from 23.1.4 to 23.1.5
+
+        Special thanks to:
+            Berkay Eren Ürün
+            Huang Wenbin
+            Matthew Fernandez
+            Oğuzhan Demirbaş
+            Scott Moore
+            Tsukiko Hakura
+            Wei-Lun Li
+                 and
+            City of Munich Open Source Sabbatical
+            Siemens
+            VulnCheck
+
 Release 2.10.0 Mon November 2 2026
         Security fixes:
            #1431  CVE-2026-113351 -- Fix denial of service with use of
