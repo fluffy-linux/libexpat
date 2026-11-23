@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/sw/bash/bin/bash
 # USAGE: get-version.sh path/to/expat.h
 #
 # This script will print Expat's version number on stdout. For example:
